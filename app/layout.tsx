@@ -3,6 +3,7 @@ import { Raleway } from "next/font/google";
 
 import "./globals.css";
 
+import Footer from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
 
 const raleway = Raleway({
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className={`${raleway.variable} antialiased`}>
         <Navbar />
         <main className="bg-gray-50 min-h-screen">{children}</main>
+        <Footer />
       </body>
     </html>
   );

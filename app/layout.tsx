@@ -12,9 +12,9 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-  title: "Buking Kamar",
+  title: "Inbuking",
   description:
-    "Buking Kamar adalah sebuah website yang menyediakan informasi tentang kamar kost/hotel yang bisa disewa",
+    "Inbuking adalah sebuah website yang menyediakan informasi tentang kamar kost/hotel yang bisa disewa",
   icons: {
     icon: "/avatar.svg",
   },

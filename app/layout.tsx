@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
 
 import "./globals.css";
 
+import { auth } from "@/auth";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
 
@@ -20,17 +22,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+
   return (
     <html lang="id">
       <body className={`${raleway.variable} antialiased`}>
-        <Navbar />
-        <main className="bg-gray-50 min-h-screen">{children}</main>
-        <Footer />
+        <SessionProvider session={session}>
+          <Navbar />
+          <main className="bg-gray-50 min-h-screen">{children}</main>
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   );
